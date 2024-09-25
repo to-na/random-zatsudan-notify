@@ -2,16 +2,16 @@ import os
 import requests
 import random
 
-# 雑談の話題をリスト化
-topics = [
-    "最近読んだ本は何ですか？",
-    "今週末の予定は？",
-    "好きな映画は？",
-    "最近ハマっている趣味は？",
-    "好きな季節はいつですか？"
-]
+# トピックファイルのパス
+TOPICS_FILE = 'topics.txt'
 
-# ランダムに雑談の話題を選ぶ
+# トピックファイルからトピックを読み込む関数
+def load_topics(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return [line.strip() for line in file.readlines()]
+
+# トピックを読み込み、ランダムに選ぶ
+topics = load_topics(TOPICS_FILE)
 message = random.choice(topics)
 
 # Slack Webhook URL
@@ -24,7 +24,7 @@ def send_message_to_slack(message: str):
     }
     headers = {'Content-Type': 'application/json'}
     response = requests.post(slack_webhook_url, json=payload, headers=headers)
-    
+
     if response.status_code != 200:
         raise Exception(f"Request to Slack returned error {response.status_code}, the response is:\n{response.text}")
 
