@@ -1,0 +1,18 @@
+name: Post Slack Message
+
+on:
+  schedule:
+    # 平日の朝9時（JST）に実行
+    - cron: "0 10 25 * 1-5"
+
+jobs:
+  post-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run script to post message
+        run: python post_message.py
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
