@@ -3,7 +3,7 @@ name: Post Slack Message
 on:
   schedule:
     # 平日の朝9時（JST）に実行
-    - cron: "0 19 27 * 1-5"
+    - cron: "0 10 30 * 1-5"
 
 jobs:
   post-message:
