@@ -23,7 +23,7 @@ slack_webhook_url = os.getenv('SLACK_WEBHOOK_URL')
 # Slackにメッセージを送信
 def send_message_to_slack(message: str):
     payload = {
-        "text": f"雑談しましょう！ 今日の話題: {message}"
+        "text": f"雑談しましょう！ 今日の話題はコレ: {message}"
     }
     headers = {'Content-Type': 'application/json'}
     response = requests.post(slack_webhook_url, json=payload, headers=headers)
