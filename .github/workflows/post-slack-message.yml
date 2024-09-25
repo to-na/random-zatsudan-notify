@@ -2,8 +2,8 @@ name: Post Slack Message
 
 on:
   schedule:
-    # 平日の朝9時（JST）に実行
-    - cron: "50 10 * * 1-5"
+    # 平日の9:30（JST）に実行
+    - cron: "30 0 * * 1-5"
   workflow_dispatch:
 
 jobs:
