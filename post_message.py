@@ -2,11 +2,14 @@ import os
 import requests
 import random
 
-# トピックファイルのパス
-TOPICS_FILE = 'topics.txt'
+# トピックのディレクトリ
+TOPICS_DIR = 'topics'
 
-# トピックファイルからトピックを読み込む関数
-def load_topics(file_path):
+# トピックディレクトリからランダムにファイルを選び、その内容を読み込む関数
+def load_topics(dir_path):
+    topic_files = os.listdir(dir_path)
+    random_selected_file = random.choice(topic_files)
+    file_path = os.path.join(dir_path, random_selected_file)
     with open(file_path, 'r', encoding='utf-8') as file:
         return [line.strip() for line in file.readlines()]
 
