@@ -14,7 +14,7 @@ def load_topics(dir_path):
         return [line.strip() for line in file.readlines()]
 
 # トピックを読み込み、ランダムに選ぶ
-topics = load_topics(TOPICS_FILE)
+topics = load_topics(TOPICS_DIR)
 message = random.choice(topics)
 
 # Slack Webhook URL
