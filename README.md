@@ -12,7 +12,7 @@
 
 2. Webhook の設定
 
-- https://api.slack.com/ messaging/webhooks
+- `https://api.slack.com/ messaging/webhooks` で Webhook を作成
 - GitHub の Secrets に `SLACK_WEBHOOK_URL` として Slack の Webhook URL を登録
 - 面倒であれば直接 `workflows/post-slack-message.yml` に書いても OK です
 - 補足：legacy な方の Webhook は未検証
